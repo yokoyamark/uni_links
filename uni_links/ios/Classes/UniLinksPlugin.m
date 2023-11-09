@@ -59,6 +59,9 @@ static id _instance;
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
   self.latestLink = [url absoluteString];
+  if (!_eventSink) {
+    self.initialLink = self.latestLink;
+  }
   return YES;
 }
 
